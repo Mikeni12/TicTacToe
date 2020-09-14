@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_tictactoe"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.mikeni.tictactoe.view.MenuFragment"
+        android:label="MenuFragment"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/actionToRoomFragment"
+            app:destination="@id/roomFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/roomFragment"
+        android:name="com.mikeni.tictactoe.view.RoomFragment"
+        android:label="fragment_room"
+        tools:layout="@layout/fragment_room">
+        <action
+            android:id="@+id/actionToGameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.mikeni.tictactoe.view.GameFragment"
+        android:label="GameFragment"
+        tools:layout="@layout/fragment_game" >
+        <argument
+            android:name="key"
+            app:argType="string" />
+        <argument
+            android:name="isHost"
+            app:argType="boolean"
+            android:defaultValue="true" />
+    </fragment>
+</navigation>

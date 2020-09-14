@@ -10,6 +10,7 @@
     <string name="label_match_draw">¡Empate!</string>
     <string name="label_match_player">Turno: %s</string>
     <string name="label_match_status">¡Tu momento ha llegado!</string>
-    <string name="label_match_waiting">Esperando un jugador...</string>
+    <string name="label_match_waiting">ESPERANDO UN JUGADOR...</string>
     <string name="label_match_winner">Ganador: %s</string>
+    <string name="label_play_again">Jugar de nuevo</string>
 </resources>

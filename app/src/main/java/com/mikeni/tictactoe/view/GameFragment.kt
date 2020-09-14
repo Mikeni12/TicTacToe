@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
@@ -35,9 +35,9 @@ class GameFragment : Fragment(), View.OnClickListener {
 
     private val buttons by lazy {
         arrayOf(
-            binding.btn00, binding.btn01, binding.btn02,
-            binding.btn10, binding.btn11, binding.btn12,
-            binding.btn20, binding.btn21, binding.btn22,
+            binding.img00, binding.img01, binding.img02,
+            binding.img10, binding.img11, binding.img12,
+            binding.img20, binding.img21, binding.img22,
         )
     }
 
@@ -117,16 +117,19 @@ class GameFragment : Fragment(), View.OnClickListener {
                 snapshot.getValue<Match>()?.let {
                     match = it
                     match.board.move.mapIndexed { index, player ->
-                        when (index) {
-                            0 -> binding.btn00.text = player
-                            1 -> binding.btn01.text = player
-                            2 -> binding.btn02.text = player
-                            3 -> binding.btn10.text = player
-                            4 -> binding.btn11.text = player
-                            5 -> binding.btn12.text = player
-                            6 -> binding.btn20.text = player
-                            7 -> binding.btn21.text = player
-                            8 -> binding.btn22.text = player
+                        if (player.isNotBlank()) {
+                            val drawable = if (player == X) R.drawable.ic_x else R.drawable.ic_o
+                            when (index) {
+                                0 -> binding.img00.setImageResource(drawable)
+                                1 -> binding.img01.setImageResource(drawable)
+                                2 -> binding.img02.setImageResource(drawable)
+                                3 -> binding.img10.setImageResource(drawable)
+                                4 -> binding.img11.setImageResource(drawable)
+                                5 -> binding.img12.setImageResource(drawable)
+                                6 -> binding.img20.setImageResource(drawable)
+                                7 -> binding.img21.setImageResource(drawable)
+                                8 -> binding.img22.setImageResource(drawable)
+                            }
                         }
                     }
                     if (match.isPlaying) {
@@ -152,6 +155,8 @@ class GameFragment : Fragment(), View.OnClickListener {
             matchReference.child("host").child("moving").setValue(true)
             matchReference.child("guest").child("moving").setValue(false)
         }
+        binding.imgWaiting.cancelAnimation()
+        binding.imgWaiting.visibility = View.GONE
         observePlayers()
     }
 
@@ -173,20 +178,20 @@ class GameFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        buttonSelected(view as Button)
+        buttonSelected(view as ImageView)
     }
 
-    private fun buttonSelected(button: Button) {
-        when (button.id) {
-            binding.btn00.id -> updateBoard(0)
-            binding.btn01.id -> updateBoard(1)
-            binding.btn02.id -> updateBoard(2)
-            binding.btn10.id -> updateBoard(3)
-            binding.btn11.id -> updateBoard(4)
-            binding.btn12.id -> updateBoard(5)
-            binding.btn20.id -> updateBoard(6)
-            binding.btn21.id -> updateBoard(7)
-            binding.btn22.id -> updateBoard(8)
+    private fun buttonSelected(imageView: ImageView) {
+        when (imageView.id) {
+            binding.img00.id -> updateBoard(0)
+            binding.img01.id -> updateBoard(1)
+            binding.img02.id -> updateBoard(2)
+            binding.img10.id -> updateBoard(3)
+            binding.img11.id -> updateBoard(4)
+            binding.img12.id -> updateBoard(5)
+            binding.img20.id -> updateBoard(6)
+            binding.img21.id -> updateBoard(7)
+            binding.img22.id -> updateBoard(8)
         }
     }
 

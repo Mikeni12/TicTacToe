@@ -8,29 +8,28 @@
 
     <TextView
         android:id="@+id/tvTitle"
+        style="@style/FragmentTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_large"
         android:text="@string/label_matches"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/imgWaiting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/finger_tap"
+        app:lottie_rawRes="@raw/discord_nearby"
         app:lottie_renderMode="hardware" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerMatches"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_small"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/btnAddRoom"
         app:layout_constraintTop_toBottomOf="@id/imgWaiting"

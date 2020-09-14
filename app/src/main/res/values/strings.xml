@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">TicTacToe</string>
     <!-- MenuFragment -->
-
+    <string name="hint_nickname">Introduce un nombre de usuario</string>
+    <string name="label_play">Jugar</string>
     <!-- RoomFragment -->
-
+    <string name="label_matches">PARTIDAS DISPONIBLES</string>
+    <string name="label_host_match">Crear partida</string>
     <!-- GameFragment -->
     <string name="label_match_draw">¡Empate!</string>
     <string name="label_match_player">Turno: %s</string>

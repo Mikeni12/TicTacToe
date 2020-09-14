@@ -6,26 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".view.MenuFragment">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_enableMergePathsForKitKatAndAbove="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/gameboy"
+        app:lottie_renderMode="hardware" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tinNickname"
+        style="@style/NicknameTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Introduce un nombre de usuario"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_margin="@dimen/margin_large"
+        android:hint="@string/hint_nickname"
+        android:theme="@style/TextInputLayoutAppearance"
+        app:layout_constraintTop_toBottomOf="@id/imgLogo">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtNickname"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textNoSuggestions"
+            android:singleLine="true"
+            android:textColor="@android:color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnPlay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jugar"
+        style="@style/GeneralButton"
+        android:text="@string/label_play"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tinNickname" />
-
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

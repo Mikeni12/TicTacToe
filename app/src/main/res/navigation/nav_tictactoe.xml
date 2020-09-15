@@ -39,5 +39,10 @@
             android:name="isHost"
             app:argType="boolean"
             android:defaultValue="true" />
+        <action
+            android:id="@+id/actionToRoomFragment"
+            app:destination="@id/roomFragment"
+            app:popUpTo="@id/roomFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

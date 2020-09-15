@@ -64,8 +64,8 @@
         <Button
             android:id="@+id/btnReset"
             style="@style/GeneralButton"
-            android:text="@string/label_play_again"
-            android:visibility="gone"
+            android:text="@string/label_exit"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

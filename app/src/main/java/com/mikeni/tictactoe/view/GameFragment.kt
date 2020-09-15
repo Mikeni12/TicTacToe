@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.*
@@ -18,6 +19,7 @@ import com.mikeni.tictactoe.databinding.FragmentGameBinding
 import com.mikeni.tictactoe.model.Match
 import com.mikeni.tictactoe.model.Player
 import com.mikeni.tictactoe.util.SharedPreferencesHelper
+import kotlinx.android.synthetic.main.fragment_game.*
 import timber.log.Timber
 
 class GameFragment : Fragment(), View.OnClickListener {
@@ -147,6 +149,10 @@ class GameFragment : Fragment(), View.OnClickListener {
         })
 
         buttons.forEach { it.setOnClickListener(this) }
+
+        btnReset.setOnClickListener {
+            findNavController().navigate(GameFragmentDirections.actionToRoomFragment())
+        }
     }
 
     private fun startGame() {
